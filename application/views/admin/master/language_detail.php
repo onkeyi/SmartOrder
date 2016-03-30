@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <ol class="breadcrumb">
-                <li><i class="fa fa-file"></i><a href="/master/languagelist"> 言語リスト</a></li>
+                <li><i class="fa fa-file"></i><a href="/admin/master/languagelist"> 言語リスト</a></li>
                 <li class="active"><i class="fa fa-file"></i> 言語詳細</li>
             </ol>
         </div>

@@ -29,7 +29,7 @@
  * @link	http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
-class Area_model extends CI_Model
+class Admin_area_model extends CI_Model
 {
     public function __construct()
     {
@@ -110,7 +110,7 @@ class Area_model extends CI_Model
         $lastInsertId = $this->db->insert_id();
 
         // 言語分挿入
-        $languages = $this->language_model->get_used();
+        $languages = $this->admin_language_model->get_used();
         $i = 0;
         foreach ($languages as $l) {
             $areaName = isset($areaNames[$i]) ? $areaNames[$i] : "" ;
@@ -161,7 +161,7 @@ class Area_model extends CI_Model
 
         // 言語分更新
         if (isset($areaNames)) {
-            $languages = $this->language_model->get_used();
+            $languages = $this->admin_language_model->get_used();
             $i = 0;
 
             foreach ($languages as $l) {

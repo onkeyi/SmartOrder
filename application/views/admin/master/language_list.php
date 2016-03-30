@@ -22,9 +22,9 @@
                     <tbody>
                     <?php foreach ($language as $l): ?>
                         <tr>
-                            <td><a href="/master/selectlanguage/<?= $l->language_id; ?>"><?= $l->language_id; ?></a>
+                            <td><a href="/admin/master/selectlanguage/<?= $l->language_id; ?>"><?= $l->language_id; ?></a>
                             </td>
-                            <td><a href="/master/selectlanguage/<?= $l->language_id; ?>"><?= $l->language_name; ?></a>
+                            <td><a href="/admin/master/selectlanguage/<?= $l->language_id; ?>"><?= $l->language_name; ?></a>
                             </td>
                             <td><?= $l->language_description; ?></td>
                             <td><?= ($l->use_yn == 'Y') ? "利用中" : "停止中"; ?></td>
@@ -33,7 +33,7 @@
                     </tbody>
                 </table>
             </div>
-            <a type="button" class="btn btn-default" href="/master/selectlanguage"><i class="fa fa-file-o"></i>&nbsp; 新規登録
+            <a type="button" class="btn btn-default" href="/admin/master/selectlanguage"><i class="fa fa-file-o"></i>&nbsp; 新規登録
             </a>
         </div>
     </div>

@@ -63,7 +63,7 @@
             return;
         }
         $.ajax({
-            url: "/welcome/loginapi",
+            url: "/admin/welcome/loginapi",
             type: 'POST',
             dataType: 'json',
             data: {

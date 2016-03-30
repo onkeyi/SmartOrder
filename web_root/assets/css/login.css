@@ -1,0 +1,8 @@
+
+.modal-footer {   border-top: 0px; }
+
+.modal-body {
+    /* 100% = dialog height, 120px = header + footer */
+    max-height: calc(100% - 120px);
+    overflow-y: scroll;
+}

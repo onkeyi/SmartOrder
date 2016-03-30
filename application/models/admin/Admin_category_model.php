@@ -29,7 +29,7 @@
  * @link	http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
-class Category_model extends CI_Model
+class Admin_category_model extends CI_Model
 {
     public function __construct()
     {
@@ -117,7 +117,7 @@ class Category_model extends CI_Model
         $lastInsertId = $this->db->insert_id();
 
         // 言語分挿入
-        $languages = $this->language_model->get_used();
+        $languages = $this->admin_language_model->get_used();
         $i = 0;
         foreach ($languages as $l) {
             $categoryName = isset($categoryNames[$i]) ? $categoryNames[$i] : "";

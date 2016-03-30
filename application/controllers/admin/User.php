@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link	http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
-class User extends CI_Controller
+class User extends MY_AdminController
 {
     public function __construct()
     {
@@ -38,17 +38,41 @@ class User extends CI_Controller
         if (!$this->input->is_ajax_request()) {
             show_404();
         }
-        $this->load->model('attendance_model');
+    }
+
+    function initPage($config)
+    {
+        $config['per_page'] = 20;
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><a href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['last_link'] = '最後';
+        $config['first_link'] = '最初';
+        return $config;
     }
 
     public function attendanceList() {
         $userId = $this->session->userdata('userdata')->user_id;
         $group = $this->session->userdata('userdata')->group;
         if ($group != 1) {
-            $data['attendance'] = $this->attendance_model->get_all(date('Y-m-d'),$userId);
+            $data['attendance'] = $this->admin_attendance_model->get_all(date('Y-m-d'),$userId);
         } else {
-            $data['attendance'] = $this->attendance_model->get_all(date('Y-m-d'));
+            $data['attendance'] = $this->admin_attendance_model->get_all(date('Y-m-d'));
         }
+        $this->load->library('pagination');
+        $config['base_url'] = uri_string();
+        $config['total_rows'] = $this->admin_reservation_model->get_all_count();
+        $this->pagination->initialize($this->initPage($config));
+
         $this->load->view('admin/user/attendance_list',$data);
     }
 

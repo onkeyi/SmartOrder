@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <ol class="breadcrumb">
-                <li><i class="fa fa-file"></i><a href="/master/menulist"> メニューリスト</a></li>
+                <li><i class="fa fa-file"></i><a href="/admin/master/menulist"> メニューリスト</a></li>
                 <li class="active"><i class="fa fa-file"></i> メニュー詳細</li>
             </ol>
         </div>

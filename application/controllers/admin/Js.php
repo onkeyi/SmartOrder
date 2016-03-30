@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link	http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
-class Js extends CI_Controller {
+class Js extends MY_AdminController {
 
     public function __construct() {
         parent::__construct();
@@ -42,6 +42,6 @@ class Js extends CI_Controller {
     }
 
     public function src($filename) {
-        $this->load->view('javascript/' . $filename);
+        $this->load->view('admin/javascript/' . $filename);
     }
 }

@@ -42,6 +42,7 @@ class Language_model extends MY_Model
         $this->db->from("language_master");
         $this->db->limit('1');
         $query = $this->db->get();
+        var_dump($query->result());
         if(is_array($query->result()))
             return $query->result()[0];
         return NULL;

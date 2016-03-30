@@ -25,10 +25,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * @package	SmartOrder
- * @author	onkeyi
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	http://onkeyi.github.io/SmartOrder/
+ * @package    SmartOrder
+ * @author    onkeyi
+ * @license    http://opensource.org/licenses/MIT	MIT License
+ * @link    http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
 class MY_Controller extends CI_Controller
@@ -121,14 +121,16 @@ class MY_Controller extends CI_Controller
         return FALSE;
     }
 
-    public function getItemByMenuId($menuId) {
+    public function getItemByMenuId($menuId)
+    {
         $rowId = $this->getRowIDByMenuId($menuId);
         if (!$rowId) return $this->getItemByRowID($rowId);
 
         return NULL;
     }
 
-    public function getItemByRowID($rowId) {
+    public function getItemByRowID($rowId)
+    {
         return $this->cart->get_item($rowId);
     }
 
@@ -147,5 +149,13 @@ class MY_Controller extends CI_Controller
     public function destroyCart()
     {
         $this->cart->destroy();
+    }
+}
+
+
+class MY_AdminController extends CI_Controller {
+    function __construct()
+    {
+        parent::__construct();
     }
 }

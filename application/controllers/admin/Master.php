@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link	http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
-class Master extends CI_Controller
+class Master extends MY_AdminController
 {
 
     public function index()
@@ -40,17 +40,17 @@ class Master extends CI_Controller
 
     public function tableList()
     {
-        $data['area'] = $this->area_model->get_all();
+        $data['area'] = $this->admin_area_model->get_all();
         $this->load->view('admin/master/table_list', $data);
     }
 
     public function selectTable($tableNo = NULL)
     {
-        $result = $this->area_model->get_area_by_id($tableNo);
+        $result = $this->admin_area_model->get_area_by_id($tableNo);
 
-        $data['area_names'] = $this->area_model->get_area_names($tableNo);
+        $data['area_names'] = $this->admin_area_model->get_area_names($tableNo);
 
-        $data['lang'] = $this->language_model->get_used();
+        $data['lang'] = $this->admin_language_model->get_used();
         $data['area_id'] = "";
         $data['area_name'] = "";
         $data['area_description'] = "";
@@ -68,7 +68,7 @@ class Master extends CI_Controller
 
     public function categoryList()
     {
-        $data['category'] = $this->category_model->get_all();
+        $data['category'] = $this->admin_category_model->get_all();
 
         $this->load->view('admin/master/category_list', $data);
     }
@@ -79,11 +79,11 @@ class Master extends CI_Controller
         $data['category_name'] = "";
         $data['category_description'] = "";
         $data['use_yn'] = "";
-        $data['lang'] = $this->language_model->get_used();
-        $data['category_names'] = $this->category_model->get_category_names($categoryId);
+        $data['lang'] = $this->admin_language_model->get_used();
+        $data['category_names'] = $this->admin_category_model->get_category_names($categoryId);
 
         if (isset($categoryId)) {
-            $category = $this->category_model->get_category_by_id($categoryId);
+            $category = $this->admin_category_model->get_category_by_id($categoryId);
             foreach ($category as $c) {
                 $data['category_id'] = $c->category_id;
                 $data['category_name'] = $c->category_name;
@@ -96,26 +96,26 @@ class Master extends CI_Controller
 
     public function menuList()
     {
-        $data['category'] = $this->category_model->get_all();
-        $data['menu'] = $this->menu_model->get_all();
+        $data['category'] = $this->admin_category_model->get_all();
+        $data['menu'] = $this->admin_menu_model->get_all();
 
         $this->load->view('admin/master/menu_list', $data);
     }
 
     public function selectMenu($menuId = NULL)
     {
-        $data['category'] = $this->category_model->get_all();
+        $data['category'] = $this->admin_category_model->get_all();
         $data['menu_id'] = "";
         $data['menu_name'] = "";
         $data['menu_description'] = "";
         $data['price'] = "";
         $data['main_image'] = "";
         $data['use_yn'] = "";
-        $data['lang'] = $this->language_model->get_used();
-        $data['menu_names'] = $this->menu_model->get_menu_names($menuId);
+        $data['lang'] = $this->admin_language_model->get_used();
+        $data['menu_names'] = $this->admin_menu_model->get_menu_names($menuId);
 
         if (isset($menuId)) {
-            $menu = $this->menu_model->get_menu_by_id($menuId);
+            $menu = $this->admin_menu_model->get_menu_by_id($menuId);
             foreach ($menu as $m) {
                 $data['menu_id'] = $m->menu_id;
                 $data['menu_name'] = $m->menu_name;
@@ -132,7 +132,7 @@ class Master extends CI_Controller
 
     public function languageList()
     {
-        $data['language'] = $this->language_model->get_all();
+        $data['language'] = $this->admin_language_model->get_all();
 
         $this->load->view('admin/master/language_list', $data);
     }
@@ -146,7 +146,7 @@ class Master extends CI_Controller
         $data['use_yn'] = "";
 
         if (isset($languageId)) {
-            $lang = $this->language_model->get_language_by_id($languageId);
+            $lang = $this->admin_language_model->get_language_by_id($languageId);
 
             foreach ($lang as $l) {
                 $data['language_id'] = $l->language_id;
@@ -161,7 +161,7 @@ class Master extends CI_Controller
 
     public function userList()
     {
-        $data['users'] = $this->user_master_model->get_all();
+        $data['users'] = $this->admin_user_master_model->get_all();
         $this->load->view('admin/master/user_list', $data);
     }
 
@@ -175,7 +175,7 @@ class Master extends CI_Controller
         $data['use_yn'] = "";
 
         if (isset($userNo)) {
-            $user = $this->user_master_model->get_all($userNo);
+            $user = $this->admin_user_master_model->get_all($userNo);
             foreach ($user as $u) {
                 $data['user_no'] = $u->user_no;
                 $data['user_id'] = $u->user_id;
@@ -191,8 +191,6 @@ class Master extends CI_Controller
 
     public function clientList()
     {
-        $this->load->model('client_model');
-
         $data['no'] = "";
         $data['client_name'] = "";
         $data['address'] = "";
@@ -201,7 +199,7 @@ class Master extends CI_Controller
         $data['postcode'] = "";
         $data['logo_image'] = "";
 
-        $client = $this->client_model->get_all();
+        $client = $this->admin_client_model->get_all();
         foreach ($client as $c) {
             $data['no'] = $c->no;
             $data['client_name'] = $c->client_name;
@@ -228,7 +226,7 @@ class Master extends CI_Controller
         $data['logo_image'] = "";
 
         if (isset($no)) {
-            $client = $this->client_model->get_all($no);
+            $client = $this->admin_client_model->get_all($no);
             foreach ($client as $c) {
                 $data['no'] = $c->no;
                 $data['client_name'] = $c->client_name;

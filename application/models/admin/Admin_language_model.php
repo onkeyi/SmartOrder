@@ -29,7 +29,7 @@
  * @link	http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
-class Language_model extends CI_Model
+class Admin_language_model extends CI_Model
 {
     public function __construct()
     {

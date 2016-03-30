@@ -43,7 +43,7 @@ function saveuser() {
         }
     }
 
-    $.post("/api/saveuser", {
+    $.post("/admin/api/saveuser", {
         user_no: user_no,
         user_id: user_id,
         user_name: user_name,
@@ -58,7 +58,7 @@ function saveuser() {
                 message: '保存完了しました。',
                 callback: function (result) {
                     $.ajax({
-                        url: '/master/userlist'
+                        url: '/admin/master/userlist'
                         , success: function (response) {
                             $('#page-wrapper').html(response);
                         }
@@ -79,7 +79,7 @@ function deleteuser() {
         if (!result) return;
 
         var user_id = $("#user_no").val();
-        $.post("/api/deleteuser", {
+        $.post("/admin/api/deleteuser", {
             user_no: user_id
         }).done(function (data) {
             if (data.result == 'OK') {
@@ -88,7 +88,7 @@ function deleteuser() {
                     message: '保存完了しました。',
                     callback: function (result) {
                         $.ajax({
-                            url: '/master/userlist'
+                            url: '/admin/master/userlist'
                             , success: function (response) {
                                 $('#page-wrapper').html(response);
                             }
@@ -125,7 +125,7 @@ function savearea() {
         return;
     }
 
-    $.post("/api/savearea", {
+    $.post("/admin/api/savearea", {
         area_id: area_id,
         area_name: area_name,
         area_description: area_description,
@@ -137,7 +137,7 @@ function savearea() {
                 message: '保存完了しました。',
                 callback: function (result) {
                     $.ajax({
-                        url: '/master/tablelist'
+                        url: '/admin/master/tablelist'
                         , success: function (response) {
                             $('#page-wrapper').html(response);
                         }
@@ -159,7 +159,7 @@ function deletearea() {
 
         var area_id = $("#area_id").val();
 
-        $.post("/api/deletearea", {area_id: area_id})
+        $.post("/admin/api/deletearea", {area_id: area_id})
             .done(function (data) {
                 if (data.result == 'OK') {
                     BootstrapDialog.alert({
@@ -167,7 +167,7 @@ function deletearea() {
                         message: '削除完了しました。',
                         callback: function (result) {
                             $.ajax({
-                                url: '/master/tablelist'
+                                url: '/admin/master/tablelist'
                                 , success: function (response) {
                                     $('#page-wrapper').html(response);
                                 }
@@ -207,7 +207,7 @@ function savecategory() {
     }
 
 
-    $.post("/api/savecategory", {
+    $.post("/admin/api/savecategory", {
         category_id: category_id,
         category_name: category_name,
         category_description: category_description,
@@ -219,7 +219,7 @@ function savecategory() {
                 message: '保存完了しました。',
                 callback: function (result) {
                     $.ajax({
-                        url: '/master/categorylist'
+                        url: '/admin/master/categorylist'
                         , success: function (response) {
                             $('#page-wrapper').html(response);
                         }
@@ -242,7 +242,7 @@ function deletecategory() {
 
         var category_id = $("#category_id").val();
 
-        $.post("/api/deletecategory", {category_id: category_id})
+        $.post("/admin/api/deletecategory", {category_id: category_id})
             .done(function (data) {
                 if (data.result == 'OK') {
                     BootstrapDialog.alert({
@@ -250,7 +250,7 @@ function deletecategory() {
                         message: '削除完了しました。',
                         callback: function (result) {
                             $.ajax({
-                                url: '/master/categorylist'
+                                url: '/admin/master/categorylist'
                                 , success: function (response) {
                                     $('#page-wrapper').html(response);
                                 }
@@ -304,7 +304,7 @@ function upload() {
 
     // Ajaxで送信
     $.ajax({
-        url: '/api/uploadfile',
+        url: '/admin/api/uploadfile',
         method: 'post',
         dataType: 'json',
         data: formData,
@@ -319,7 +319,7 @@ function upload() {
                 message: '保存完了しました。',
                 callback: function (result) {
                     $.ajax({
-                        url: '/master/menulist'
+                        url: '/admin/master/menulist'
                         , success: function (response) {
                             $('#page-wrapper').html(response);
                         }
@@ -357,7 +357,7 @@ function savelanguage() {
         return;
     }
 
-    $.post("/api/savelanguage", {
+    $.post("/admin/api/savelanguage", {
         language_id: language_id,
         language_name: language_name,
         language_description: language_description,
@@ -370,7 +370,7 @@ function savelanguage() {
                 message: '保存完了しました。',
                 callback: function (result) {
                     $.ajax({
-                        url: '/master/languagelist'
+                        url: '/admin/master/languagelist'
                         , success: function (response) {
                             $('#page-wrapper').html(response);
                         }
@@ -411,7 +411,7 @@ function savereservation() {
         return;
     }
 
-    $.post("/api/savereservation", {
+    $.post("/admin/api/savereservation", {
         reservation_id: reservation_id,
         reservation_area_id: reservation_area_id,
         reservation_menu_id: reservation_menu_id,
@@ -469,7 +469,7 @@ function uploadclient() {
 
     // Ajaxで送信
     $.ajax({
-        url: '/api/uploadLogoFile',
+        url: '/admin/api/uploadLogoFile',
         method: 'post',
         dataType: 'json',
         data: formData,
@@ -484,7 +484,7 @@ function uploadclient() {
                 message: '保存完了しました。',
                 callback: function (result) {
                     $.ajax({
-                        url: '/master/clientlist'
+                        url: '/admin/master/clientlist'
                         , success: function (response) {
                             $('#page-wrapper').html(response);
                         }
@@ -513,7 +513,7 @@ function uploadcsv(action) {
     // Ajaxで送信
     waitingDialog.show('処理中', {dialogSize: 'sm', progressType: 'warning'});
     $.ajax({
-        url: '/api/uploadcsv/' + action,
+        url: '/admin/api/uploadcsv/' + action,
         method: 'post',
         dataType: 'html',
         data: formData,
@@ -546,7 +546,7 @@ function uploadzip() {
     // Ajaxで送信
     waitingDialog.show('処理中', {dialogSize: 'sm', progressType: 'warning'});
     $.ajax({
-        url: '/api/uploadzip/',
+        url: '/admin/api/uploadzip/',
         method: 'post',
         dataType: 'html',
         data: formData,

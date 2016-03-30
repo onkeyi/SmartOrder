@@ -64,7 +64,7 @@
 }(jQuery));
 
 function logout() {
-    $.post("/api/logout", {action:'logout'}).done(function (data) {
+    $.post("/admin/api/logout", {action:'logout'}).done(function (data) {
         location.reload(true);
     }).fail(function (jqXHR, textStatus, errorThrown) {
         console.log('ERROR', jqXHR, textStatus, errorThrown);

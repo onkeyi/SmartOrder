@@ -41,9 +41,9 @@
                                 <tr>
                                     <td><?= $m->menu_id; ?></td>
                                     <td>
-                                        <a class="thumbnail" href="/master/selectmenu/<?= $m->menu_id; ?>"><?= empty($m->main_image) ? "" : "<img width='70' height='70' src='" . $this->config->item("base_url") . "/static/upload/" . $m->main_image . "'>"; ?></a>
+                                        <a class="thumbnail" href="/admin/master/selectmenu/<?= $m->menu_id; ?>"><?= empty($m->main_image) ? "" : "<img width='70' height='70' src='" . $this->config->item("base_url") . "/static/upload/" . $m->main_image . "'>"; ?></a>
                                     </td>
-                                    <td><a href="/master/selectmenu/<?= $m->menu_id; ?>"><?= $m->menu_name; ?></a></td>
+                                    <td><a href="/admin/master/selectmenu/<?= $m->menu_id; ?>"><?= $m->menu_name; ?></a></td>
                                     <td><?= $m->menu_description; ?></td>
                                     <td><?= $m->use_yn; ?></td>
                                 </tr>
@@ -56,7 +56,7 @@
             <?php endforeach; ?>
         </div>
     </div>
-    <a type="button" class="btn btn-default" href="/master/selectmenu"><i class="fa fa-file-o"></i>&nbsp; 新規登録
+    <a type="button" class="btn btn-default" href="/admin/master/selectmenu"><i class="fa fa-file-o"></i>&nbsp; 新規登録
     </a>
 </div>
 <!-- /.container-fluid -->

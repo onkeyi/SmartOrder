@@ -29,7 +29,7 @@
  * @link	http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
-class Menu_model extends CI_Model
+class Admin_menu_model extends CI_Model
 {
 
     public function __construct()

@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link	http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
-class Sessions extends MY_Controller
+class Sessions extends MY_AdminController
 {
 
     function __construct() {
@@ -47,13 +47,13 @@ class Sessions extends MY_Controller
 
     public function table()
     {
-        $data['areas'] = $this->area_session_model->get_all();
+        $data['areas'] = $this->admin_area_session_model->get_all();
         $this->load->view('admin/session/table_list', $data);
     }
 
     public function tabledetail($areaId, $sessionId)
     {
-        $data['orders'] = $this->order_session_model->get_area_order($areaId, $sessionId);
+        $data['orders'] = $this->admin_order_session_model->get_area_order($areaId, $sessionId);
         $this->load->view('admin/session/table_order', $data);
     }
 
@@ -66,11 +66,11 @@ class Sessions extends MY_Controller
     public function orderlist($offset = 0)
     {
         $this->load->library('pagination');
-        $config['base_url'] = '/sessions/orderlist';
-        $config['total_rows'] = $this->order_session_model->get_total_count()[0]->count;
+        $config['base_url'] = uri_string();
+        $config['total_rows'] = $this->admin_order_session_model->get_total_count()[0]->count;
 
         $this->pagination->initialize($this->initPage($config));
-        $data['orders'] = $this->order_session_model->get_all($offset, 20);
+        $data['orders'] = $this->admin_order_session_model->get_all($offset, 20);
         $this->load->view('admin/session/order_list', $data);
     }
 
@@ -97,10 +97,10 @@ class Sessions extends MY_Controller
     public function reservation($offset = 0)
     {
         $this->load->library('pagination');
-        $config['base_url'] = '/sessions/orderlist';
-        $config['total_rows'] = $this->reservation_model->get_all_count();
+        $config['base_url'] = '/admin/sessions/orderlist';
+        $config['total_rows'] = $this->admin_reservation_model->get_all_count();
         $this->pagination->initialize($this->initPage($config));
-        $data['reservation'] = $this->reservation_model->get_all($offset, 20);
+        $data['reservation'] = $this->admin_reservation_model->get_all($offset, 20);
         $this->load->view('admin/session/reservation_list', $data);
     }
 
@@ -113,11 +113,11 @@ class Sessions extends MY_Controller
         $data['reservation_menu_id'] = '';
         $data['reservation_number'] = 0;
         $data['reservation_memo'] = '';
-        $data['menus'] = $this->menu_model->get_all();
-        $data['areas'] = $this->area_model->get_all();
+        $data['menus'] = $this->admin_menu_model->get_all();
+        $data['areas'] = $this->admin_area_model->get_all();
 
         if (isset($reservationNo)) {
-            $result = $this->reservation_model->get_by_reservation_id($reservationNo);
+            $result = $this->admin_reservation_model->get_by_reservation_id($reservationNo);
             foreach ($result as $r) {
                 $data['reservation_id'] = $r->reservation_id;
                 $data['reservation_date'] = $r->reservation_date;

@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <ol class="breadcrumb">
-                <li><i class="fa fa-dashboard"></i> <a href="/">TOP</a></li>
+                <li><i class="fa fa-dashboard"></i> <a href="/admin">TOP</a></li>
                 <li class="active"><i class="fa fa-file"></i> データーインポート</li>
             </ol>
         </div>

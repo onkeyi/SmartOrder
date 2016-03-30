@@ -23,7 +23,7 @@
                     <?php foreach ($area as $a): ?>
                         <tr>
                             <td><?= $a->area_id; ?></td>
-                            <td><a href="/master/selecttable/<?= $a->area_id; ?>"><?= $a->area_name; ?></a></td>
+                            <td><a href="/admin/master/selecttable/<?= $a->area_id; ?>"><?= $a->area_name; ?></a></td>
                             <td><?= $a->area_description; ?></td>
                             <td><?= ($a->use_yn == 'Y') ? "利用中" : "停止中"; ?></td>
                         </tr>
@@ -31,7 +31,7 @@
                     </tbody>
                 </table>
             </div>
-            <a type="button" class="btn btn-default" href="/master/selecttable"><i class="fa fa-file-o"></i>&nbsp; 新規登録
+            <a type="button" class="btn btn-default" href="/admin/master/selecttable"><i class="fa fa-file-o"></i>&nbsp; 新規登録
             </a>
         </div>
     </div>

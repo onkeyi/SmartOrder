@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <ol class="breadcrumb">
-                <li><i class="fa fa-file"></i><a href="/master/languagelist"> 店舗情報</a></li>
+                <li><i class="fa fa-file"></i><a href="/admin/master/languagelist"> 店舗情報</a></li>
             </ol>
         </div>
     </div>
@@ -74,7 +74,7 @@
                 </div>
             </form>
             <?php endif; ?>
-            <a type="button" class="btn btn-default" href="/master/selectclient"><i class="fa fa-file-o"></i>&nbsp; 新規登録</a>
+            <a type="button" class="btn btn-default" href="/admin/master/selectclient"><i class="fa fa-file-o"></i>&nbsp; 新規登録</a>
         </div>
     </div>
 </div>

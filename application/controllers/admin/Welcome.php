@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link	http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
-class Welcome extends CI_Controller
+class Welcome extends MY_AdminController
 {
 
     public function index()
@@ -59,7 +59,7 @@ class Welcome extends CI_Controller
         $userNo = $this->encrypt->decode($param);
         echo $userNo;
 
-        $resutl = $this->user_master_model->get_user_by_no($userNo);
+        $resutl = $this->admin_user_master_model->get_user_by_no($userNo);
         //if (!isset($result)) show_404();
 
         $data['user_name'] = $resutl[0]->user_name;
@@ -78,7 +78,7 @@ class Welcome extends CI_Controller
             $userId = $postdata['user_id'];
             $pwd = $postdata['password'];
             if (isset($userId) && isset($pwd)) {
-                $result = $this->user_master_model->get_user_by_id($userId);
+                $result = $this->admin_user_master_model->get_user_by_id($userId);
                 if (!empty($result[0])) {
                     $password = $result[0]->password;
                     if (sha1($pwd) == $password) {

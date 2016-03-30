@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <ol class="breadcrumb">
-                <li><i class="fa fa-file"></i><a href="/master/tablelist"> テーブルリスト</a></li>
+                <li><i class="fa fa-file"></i><a href="/admin/master/tablelist"> テーブルリスト</a></li>
                 <li class="active"><i class="fa fa-file"></i> テーブル詳細</li>
             </ol>
         </div>
@@ -82,7 +82,7 @@
 
                         <div class="col-sm-6 thumbnail">
                             <img
-                                src="<?= $this->config->item('web_url') . 'static/upload/' . 'talbe_' . $area_id . '.png'; ?>">
+                                src="<?= base_url("static/upload/talbe_" . $area_id . ".png"); ?>">
                         </div>
                     </div>
                     <div class="form-group">

@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <ol class="breadcrumb">
-                <li><i class="fa fa-dashboard"></i> <a href="/">TOP</a></li>
+                <li><i class="fa fa-dashboard"></i> <a href="/admin">TOP</a></li>
                 <li class="active"><i class="fa fa-file"></i> ユーザーリスト</li>
             </ol>
         </div>
@@ -24,7 +24,7 @@
                     <tbody>
                     <?php foreach ($users as $a): ?>
                         <tr>
-                            <td><a href="/master/selectuser/<?=$a->user_no;?>"><?= $a->user_no; ?></td>
+                            <td><a href="/admin/master/selectuser/<?=$a->user_no;?>"><?= $a->user_no; ?></td>
                             <td><?= $a->user_id; ?></td>
                             <td><?= $a->user_name; ?></td>
                             <td><?= $a->group; ?></td>
@@ -34,7 +34,7 @@
                     </tbody>
                 </table>
             </div>
-            <a type="button" class="btn btn-default" href="/master/selectuser"><i class="fa fa-file-o"></i>&nbsp; 新規登録
+            <a type="button" class="btn btn-default" href="/admin/master/selectuser"><i class="fa fa-file-o"></i>&nbsp; 新規登録
             </a>
         </div>
     </div>

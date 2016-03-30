@@ -29,7 +29,7 @@
  * @link	http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
-class Area_session_model extends CI_Model
+class Admin_area_session_model extends CI_Model
 {
     public function __construct()
     {

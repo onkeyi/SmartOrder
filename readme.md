@@ -1,6 +1,9 @@
 
 # SmartOrder
 
+[![CodeIgniter](https://img.shields.io/badge/CodeIgniter-3.1-green.svg)]()
+[QRCode Library](http://phpqrcode.sourceforge.net/)
+
 多国語対応
 レストラン、ホーテルなど
 スマートフォンオーダーシステム
@@ -21,4 +24,4 @@
     - 会計
 
 
-[![CodeIgniter](https://img.shields.io/badge/CodeIgniter-3.1-green.svg)]()
+

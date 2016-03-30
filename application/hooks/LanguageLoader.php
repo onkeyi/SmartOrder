@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 /**
  * SmartOrder
  * This content is released under the MIT License (MIT)
@@ -24,10 +25,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * @package	SmartOrder
- * @author	onkeyi
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	http://onkeyi.github.io/SmartOrder/
+ * @package    SmartOrder
+ * @author    onkeyi
+ * @license    http://opensource.org/licenses/MIT	MIT License
+ * @link    http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
 class LanguageLoader
@@ -37,6 +38,18 @@ class LanguageLoader
         $ci =& get_instance();
         $ci->load->helper('language');
 
+        $adminUrl = uri_string();
+        // admin site
+        if (strlen($adminUrl) >= 5 && substr($adminUrl,0,5) === "admin") {
+            $isLogin = $ci->session->userdata('userdata');
+            if (!isset($isLogin)) {
+                $ci->load->view('admin/login');
+            }
+            // jp
+            $ci->session->set_userdata('site_lang', 1);
+            return;
+        }
+
         $site_lang = $ci->session->userdata('site_lang');
 
         if (isset($site_lang)) {
@@ -45,15 +58,14 @@ class LanguageLoader
         }
 
         $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-        $langCode = $this->language_model->get_language_code($lang);
+        $langCode = $ci->language_model->get_language_code($lang);
 
         if (isset($langCode)) {
             $ci->lang->load('message', $lang);
             $ci->session->set_userdata('site_lang', $lang);
         } else {
             $ci->lang->load('message', "ja");
-            $ci->session->set_userdata('site_lang', 1);
+            $ci->session->set_userdata('site_lang', $lang);
         }
-
     }
 }

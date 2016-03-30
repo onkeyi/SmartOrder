@@ -23,7 +23,7 @@
                     <?php foreach ($category as $c): ?>
                         <tr>
                             <td><?= $c->category_id; ?></td>
-                            <td><a href="/master/selectcategory/<?= $c->category_id; ?>"><?= $c->category_name; ?></a>
+                            <td><a href="/admin/master/selectcategory/<?= $c->category_id; ?>"><?= $c->category_name; ?></a>
                             </td>
                             <td><?= $c->category_description; ?></td>
                             <td><?= ($c->use_yn == 'Y') ? "利用中" : "停止中"; ?></td>
@@ -32,7 +32,7 @@
                     </tbody>
                 </table>
             </div>
-            <a type="button" class="btn btn-default" href="/master/selectcategory"><i class="fa fa-file-o"></i>&nbsp; 新規登録
+            <a type="button" class="btn btn-default" href="/admin/master/selectcategory"><i class="fa fa-file-o"></i>&nbsp; 新規登録
             </a>
         </div>
     </div>

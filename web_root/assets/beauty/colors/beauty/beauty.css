@@ -40,7 +40,7 @@ a.button_11, a.button_12, a.button_14, a.button_13, a.button_lang {
     position: absolute;
     right: 48%;
     top: 48%;
-    background: url(images/loader.gif) no-repeat center;
+    background: url(/assets/images/loader.gif) no-repeat center;
     width: 24px;
     height: 24px;
     text-indent: -9999em;

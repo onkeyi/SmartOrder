@@ -29,7 +29,7 @@
  * @link	http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
-class Reservation_model extends CI_Model
+class Admin_reservation_model extends CI_Model
 {
     public function __construct()
     {
