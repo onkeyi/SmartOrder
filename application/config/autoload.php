@@ -145,4 +145,5 @@ $autoload['model'] = array(
     'admin/admin_order_session_model'=>'admin_order_session_model',
     'admin/admin_reservation_model'=>'admin_reservation_model',
     'admin/admin_user_master_model'=>'admin_user_master_model',
+    
 );
