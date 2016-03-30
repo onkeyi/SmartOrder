@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link	http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
-class Api extends CI_Controller
+class Api extends MY_AdminController
 {
     public function __construct()
     {
@@ -112,11 +112,11 @@ class Api extends CI_Controller
     private function generateQR($tableId) {
         $this->load->library('ciqrcode');
         $this->load->library('encrypt');
-        $fileName = $this->config->item('upload_path') .'talbe_' . $tableId . '.png';
+        $fileName = base_url("/static/upload/talbe_" . $tableId . ".png");
         if (is_file($fileName)) {
             unlink($fileName);
         }
-        $params['data'] = $this->config->item('web_url') . 'welcome/index/' . $this->encrypt->encode($tableId);
+        $params['data'] = base_url('welcome/index/' . $this->encrypt->encode($tableId));
         $params['level'] = 'H';
         $params['size'] = 3;
         $params['savename'] = $fileName;
