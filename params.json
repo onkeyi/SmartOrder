@@ -1,0 +1,6 @@
+{
+  "name": "SmartOrder",
+  "tagline": "スマートフォンによるオーダーシステム",
+  "body": "### 概要\r\n\r\n個人で持ってるスマートフォンをQRコードをスキャンして、オーダーできるシステム。\r\n多国語メニュー対応　（日本語、中国語、英語、韓国語）\r\n\r\n### オーダーシステム\r\n- QRコードスキャン\r\n- メニュー表示\r\n- オーダー\r\n- 会計\r\n\r\n### 管理画面\r\n- テーブル管理\r\n- カテゴリ管理\r\n- メニュー管理\r\n- 言語管理\r\n- ユーザー管理\r\n- 店舗管理\r\n- 勤怠管理\r\n- 売り上げ管理\r\n- オーター管理\r\n- 在庫管理\r\n\r\n### 注文管理\r\nテーブル番号、注文内容一覧を表示\r\n\r\n\r\n### POS管理画面\r\nテーブルQRコードによる注文一覧、合計\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
