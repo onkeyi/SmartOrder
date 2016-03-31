@@ -3,7 +3,7 @@ SmartOrder
 
 Screen Shot
 -----------
-<img src="http://onkeyi.github.com/SmartOrder/images/main.png" width="400">
+<img src="http://onkeyi.github.com/SmartOrder/images/menu.png" width="400">
 
 Site
 ----
