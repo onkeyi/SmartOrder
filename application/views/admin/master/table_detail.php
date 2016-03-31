@@ -104,6 +104,10 @@
                         <button type="button" onclick="deletearea();" class="btn btn-default"><i
                                 class="fa fa-trash-o"></i>&nbsp; 削除
                         </button>
+
+                        <button type="button" onclick="printtableqr();" class="btn btn-default"><i
+                                class="fa fa-trash-o"></i>&nbsp; QRコード印刷
+                        </button>
                     </div>
                 </div>
             </form>

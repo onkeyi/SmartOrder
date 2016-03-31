@@ -24,9 +24,9 @@
                     <?php foreach ($reservation as $a): ?>
                         <tr>
                             <td>
-                                <a href="/sessions/reservationreg/<?= $a->reservation_id; ?>"><?= $a->reservation_id; ?></a>
+                                <a href="/admin/sessions/reservationreg/<?= $a->reservation_id; ?>"><?= $a->reservation_id; ?></a>
                             </td>
-                            <td><a href="/sessions/reservationreg/<?= $a->reservation_id; ?>"><?= $a->area_name; ?></a>
+                            <td><a href="/admin/sessions/reservationreg/<?= $a->reservation_id; ?>"><?= $a->area_name; ?></a>
                             </td>
                             <td><?= $a->menu_name ?></td>
                             <td><?= $a->reservation_date; ?></td>
@@ -39,7 +39,7 @@
         </div>
     </div>
     <p class="pagination"><?= $this->pagination->create_links(); ?></p>
-    <a type="button" class="btn btn-default" href="/sessions/reservationreg">新規登録</a>
+    <a type="button" class="btn btn-default" href="/admin/sessions/reservationreg">新規登録</a>
 </div>
 <!-- /.container-fluid -->
 

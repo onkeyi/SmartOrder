@@ -88,6 +88,17 @@ class Admin_order_session_model extends CI_Model
         $query = $this->db->get();
     }
 
+    public function get_today_sale() {
+        $this->db->select('sum(menu_price*quantity)');
+        $this->db->from("order_session_view");
+        $this->db->where('area_language_id', $this->session->userdata('site_lang'));
+        $this->db->where('category_language_id', $this->session->userdata('site_lang'));
+        $this->db->where('menu_language_id', $this->session->userdata('site_lang'));
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
     public function add($data)
     {
         $this->db->insert('order_session', $data);

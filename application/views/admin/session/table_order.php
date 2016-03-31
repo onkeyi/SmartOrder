@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <ol class="breadcrumb">
-                <li><i class="fa fa-file"></i><a href="/sessions/table"> テーブル利用状況</a></li>
+                <li><i class="fa fa-file"></i><a href="/admin/sessions/table"> テーブル利用状況</a></li>
                 <li class="active"><i class="fa fa-file"></i> オーダー詳細</li>
             </ol>
         </div>

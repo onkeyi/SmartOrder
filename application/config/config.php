@@ -513,4 +513,12 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
+/*
+ |  file upload path
+ |  $ chmod 777 upload
+ |
+ */
 $config['upload_path'] =  FCPATH . '/static/upload/';
+
+// user theme.
+$config['theme'] = "beauty";

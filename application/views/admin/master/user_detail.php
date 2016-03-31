@@ -87,6 +87,11 @@
                         <button type="button" onclick="deleteuser();" class="btn btn-default"><i
                                 class="fa fa-trash-o"></i>&nbsp; 削除
                         </button>
+
+
+                        <button type="button" onclick="printuserqr();" class="btn btn-default"><i
+                                class="fa fa-trash-o"></i>&nbsp; QRコード印刷
+                        </button>
                     </div>
                 </div>
             </form>

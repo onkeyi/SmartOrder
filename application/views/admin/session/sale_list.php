@@ -25,7 +25,7 @@
                     <?php foreach ($areas as $a): ?>
                         <tr>
                             <td>
-                                <a href="/sessions/tabledetail/<?= $a->area_id ?>/<?= $a->session_id; ?>"><?= $a->area_name; ?></a>
+                                <a href="/admin/sessions/tabledetail/<?= $a->area_id ?>/<?= $a->session_id; ?>"><?= $a->area_name; ?></a>
                             </td>
                             <td><?= $a->area_count; ?></td>
                             <td><?= $a->area_start_date; ?></td>
@@ -37,7 +37,7 @@
                     </tbody>
                 </table>
             </div>
-            <a type="button" class="btn btn-default" href="/master/selecttable">新規登録
+            <a type="button" class="btn btn-default" href="/admin/master/selecttable">新規登録
             </a>
         </div>
     </div>

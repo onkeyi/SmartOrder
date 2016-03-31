@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('encrypt', 'database', 'session', 'cart', 'encryption');
+$autoload['libraries'] = array('encrypt', 'database', 'session', 'cart', 'encryption','user_agent');
 
 /*
 | -------------------------------------------------------------------
@@ -145,5 +145,5 @@ $autoload['model'] = array(
     'admin/admin_order_session_model'=>'admin_order_session_model',
     'admin/admin_reservation_model'=>'admin_reservation_model',
     'admin/admin_user_master_model'=>'admin_user_master_model',
-    
+
 );

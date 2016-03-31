@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <ol class="breadcrumb">
-                <li><i class="fa fa-file"></i><a href="/sessions/revervationlist"> 予約一覧</a></li>
+                <li><i class="fa fa-file"></i><a href="/admin/sessions/revervationlist"> 予約一覧</a></li>
                 <li class="active"><i class="fa fa-file"></i> 予約詳細</li>
             </ol>
         </div>

@@ -25,7 +25,7 @@
                     <?php foreach ($areas as $a): ?>
                         <tr>
                             <td>
-                                <a href="/sessions/tabledetail/<?= $a->area_id ?>/<?= $a->session_id; ?>"><?= $a->area_name; ?></a>
+                                <a href="/admin/sessions/tabledetail/<?= $a->area_id ?>/<?= $a->session_id; ?>"><?= $a->area_name; ?></a>
                             </td>
                             <td><?= $a->area_count; ?></td>
                             <td><?= $a->area_start_date; ?></td>

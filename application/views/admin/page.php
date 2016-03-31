@@ -31,7 +31,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/admin/welcome/top">SMART ORDER</a>
+            <a class="navbar-brand" href="#" onclick="location.href='/admin';">SMART ORDER</a>
         </div>
         <?php if ($this->session->userdata('userdata')) : ?>
         <div
@@ -47,7 +47,6 @@
                     <li class="text-center">
                         <!--                    <img src="assets/img/find_user.png" class="user-image img-responsive"/>-->
                     </li>
-                    <li><a href="/admin/welcome/top"><i class="fa fa-dashboard fa-lg"></i> TOP</a></li>
                     <li><a href="/admin/sessions/reservation"><i class="fa fa-desktop fa-lg"></i> 予約管理</a></li>
                     <li><a href="/admin/sessions/table"><i class="fa fa-qrcode fa-lg"></i> テーブル管理</a></li>
                     <li><a href="/admin/sessions/orderlist"><i class="fa fa-shopping-cart fa-lg"></i> 注文管理</a></li>
@@ -68,7 +67,8 @@
                                 <li><a href="/admin/master/clientlist"><i class="fa fa-cutlery"></i>&nbsp;店舗情報</a></li>
                                 <li><a href="/admin/master/userlist"><i class="fa fa-user"></i>&nbsp;ユーザー</a></li>
                                 <li><a href="/admin/master/languagelist"><i class="fa fa-globe"></i>&nbsp;言語</a></li>
-                                <li><a href="/admin/master/csvupload"><i class="fa fa-cloud-upload"></i>&nbsp;インポート</a></li>
+                                <li><a href="/admin/master/csvupload"><i class="fa fa-cloud-upload"></i>&nbsp;インポート</a>
+                                </li>
                             </ul>
                         </li>
                     <?php endif; ?>
@@ -82,15 +82,74 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        welcome .
+                        <h1 class="page-header">
+                            <?php $weekday = array("日", "月", "火", "水", "木", "金", "土"); ?>
+                            <?php echo date('Y年m月d日') . " (" . $weekday[date('w')] . ")" ?>
+                            <small><?php echo date('H:i') . '現在' ?></small>
+                        </h1>
+                        <div class="row">
+                            <div class="col-md-4">売上合計</div>
+                            <div class="col-md-4">客数</div>
+                            <div class="col-md-4">客単価</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h2 class="text-center">2000
+                                    <small>円</small>
+                                </h2>
+                            </div>
+                            <div class="col-md-4">
+                                <h2 class="text-center">５
+                                    <small>名</small>
+                                </h2>
+                            </div>
+                            <div class="col-md-4">
+                                <h2 class="text-center">54
+                                    <small>円</small>
+                                </h2>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <hr>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>予約テーブル</th>
+                                    <th>予約メニュー</th>
+                                    <th>予約時間</th>
+                                    <th>メモ</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php foreach ($reservation as $a): ?>
+                                    <tr>
+                                        <td>
+                                            <a href="/admin/sessions/reservationreg/<?= $a->reservation_id; ?>"><?= $a->reservation_id; ?></a>
+                                        </td>
+                                        <td>
+                                            <a href="/admin/sessions/reservationreg/<?= $a->reservation_id; ?>"><?= $a->area_name; ?></a>
+                                        </td>
+                                        <td><?= $a->menu_name ?></td>
+                                        <td><?= $a->reservation_date; ?></td>
+                                        <td><?= $a->reservation_memo; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!-- /.container-fluid -->
         </div>
     <?php endif; ?>
     <!-- /. PAGE WRAPPER  -->
-    <span><i class="fa fa-copyright"></i>Copyright @ Smart Order</span>
+    <span><i class="fa fa-copyright"></i>Copyright @ <a href="http://onkeyi.github.com/SmartOrder">Smart Order</a></span>
 </div>
 <!-- /. WRAPPER  -->
 <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
@@ -117,9 +176,9 @@
 <script src="/assets/js/fileinput/js/fileinput.min.js"></script>
 <?php if ($this->session->userdata('userdata')) : ?>
     <!-- customer javascript -->
-    <script src="/admin/js/src/user.js?var=<?=time()?>"></script>
+    <script src="/admin/js/src/user.js?var=<?= time() ?>"></script>
 <?php if ($this->session->userdata('userdata')->group == 1) : ?>
-    <script src="/admin/js/src/admin.js?var=<?=time()?>"></script>
+    <script src="/admin/js/src/admin.js?var=<?= time() ?>"></script>
 <?php endif; ?>
 <?php endif; ?>
 </body>

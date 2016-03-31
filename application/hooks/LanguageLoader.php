@@ -57,7 +57,7 @@ class LanguageLoader
             return;
         }
 
-        $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+        $lang = $ci->agent->accept_lang(); //substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
         $langCode = $ci->language_model->get_language_code($lang);
 
         if (isset($langCode)) {
