@@ -112,11 +112,11 @@ class Api extends MY_AdminController
     private function generateQR($tableId) {
         $this->load->library('ciqrcode');
         $this->load->library('encrypt');
-        $fileName = base_url("/static/upload/talbe_" . $tableId . ".png");
+        $fileName = $this->config->item('upload_path') .'talbe_' . $tableId . '.png';
         if (is_file($fileName)) {
             unlink($fileName);
         }
-        $params['data'] = base_url('welcome/index/' . $this->encrypt->encode($tableId));
+        $params['data'] = site_url('welcome/index/' . $this->encrypt->encode($tableId));
         $params['level'] = 'H';
         $params['size'] = 3;
         $params['savename'] = $fileName;

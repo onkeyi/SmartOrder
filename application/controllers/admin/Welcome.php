@@ -48,7 +48,7 @@ class Welcome extends MY_AdminController
         $params['savename'] = $this->config->item('upload_path') .'tes.png';
         $this->ciqrcode->generate($params);
 
-        echo '<img src="http://smart.nazo.cc/static/upload/tes.png" />';
+        echo '<img src="http://localhost/static/upload/tes.png" />';
 
     }
 
