@@ -522,3 +522,6 @@ $config['upload_path'] =  FCPATH . '/static/upload/';
 
 // user theme.
 $config['theme'] = "beauty";
+
+
+$config['version'] = "0.1";
