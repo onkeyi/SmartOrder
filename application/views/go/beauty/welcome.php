@@ -82,8 +82,8 @@
         html += "UserAgent:" + navigator.userAgent + "<br />";
         html += "ONLINE :" + navigator.onLine + "<br />";
 
-        getLocation();
-        output.innerHTML = html;
+        //getLocation();
+        //output.innerHTML = html;
         $.cookie('userid','AAAAAA');
     }
 

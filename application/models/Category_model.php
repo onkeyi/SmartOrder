@@ -43,7 +43,6 @@ class Category_model extends MY_Model
         $this->db->where('category_language_id', $this->siteLangCode);
         $this->db->order_by('category_id');
         $query = $this->db->get();
-        echo $this->db->last_query();
         return $query->result();
     }
 
