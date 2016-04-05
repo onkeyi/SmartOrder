@@ -40,13 +40,13 @@ class LanguageLoader
 
         $adminUrl = uri_string();
         // admin site
-        if (strlen($adminUrl) >= 5 && substr($adminUrl,0,5) === "admin") {
+        if (strlen($adminUrl) >= 5 && substr($adminUrl, 0, 5) === "admin") {
             $isLogin = $ci->session->userdata('userdata');
             if (!isset($isLogin)) {
                 $ci->load->view('admin/login');
             }
             // jp
-            $ci->session->set_userdata('site_lang', 1);
+            $ci->session->set_userdata('admin_lang_code', 1);
             return;
         }
 
@@ -58,7 +58,7 @@ class LanguageLoader
         }
 
         $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-        echo $lang;
+
         $langCode = $ci->language_model->get_language_code($lang);
 
         if (isset($langCode)) {

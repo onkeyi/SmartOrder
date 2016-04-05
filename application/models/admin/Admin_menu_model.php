@@ -29,7 +29,7 @@
  * @link	http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
-class Admin_menu_model extends CI_Model
+class Admin_menu_model extends MY_AdminModel
 {
 
     public function __construct()
@@ -41,8 +41,8 @@ class Admin_menu_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from("menu_list_view");
-        $this->db->where('menu_language_id', $this->session->userdata('site_lang'));
-        $this->db->where('category_language_id', $this->session->userdata('site_lang'));
+        $this->db->where('menu_language_id', $this->siteLangCode);
+        $this->db->where('category_language_id', $this->siteLangCode);
         $this->db->order_by('menu_id');
         $query = $this->db->get();
         return $query->result();
@@ -53,8 +53,8 @@ class Admin_menu_model extends CI_Model
         $this->db->select("*");
         $this->db->from("menu_list_view");
         $this->db->where('use_yn', 'Y');
-        $this->db->where('menu_language_id', $this->session->userdata('site_lang'));
-        $this->db->where('category_language_id', $this->session->userdata('site_lang'));
+        $this->db->where('menu_language_id', $this->siteLangCode);
+        $this->db->where('category_language_id', $this->siteLangCode);
         $this->db->order_by('menu_id');
         $query = $this->db->get();
         return $query->result();
@@ -76,8 +76,8 @@ class Admin_menu_model extends CI_Model
         $this->db->select("*");
         $this->db->from("menu_list_view");
         $this->db->where('menu_id', $menuId);
-        $this->db->where('menu_language_id', $this->session->userdata('site_lang'));
-        $this->db->where('category_language_id', $this->session->userdata('site_lang'));
+        $this->db->where('menu_language_id', $this->siteLangCode);
+        $this->db->where('category_language_id', $this->siteLangCode);
         $query = $this->db->get();
         return $query->result();
     }
@@ -155,7 +155,7 @@ class Admin_menu_model extends CI_Model
             $optionID = $this->db->insert_id();
             $insertOptionLanguageData = array(
                 'option_id' => $optionID,
-                'language_id' => $this->session->userdata('site_lang'),
+                'language_id' => $this->session->userdata('admin_lang_code'),
                 'option_name' => $optionName,
                 'option_description' => $optionDescription
             );

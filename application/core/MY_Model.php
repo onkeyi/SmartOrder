@@ -40,3 +40,15 @@ class MY_model extends CI_Model
         $this->siteLangCode = $this->session->userdata('site_lang_code');
     }
 }
+
+class MY_AdminModel extends CI_Model
+{
+    protected $siteLangCode;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $lcd = $this->session->userdata('admin_lang_code');
+        $this->siteLangCode = isset($lcd) ? $lcd : 1;
+    }
+}

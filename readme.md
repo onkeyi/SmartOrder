@@ -24,4 +24,33 @@
     - 会計
 
 
+# php
+```sh
+apt-get install php5-mcrypt
+php5enmod mcrypt
+apt-get install php5-gd
+```
 
+## Apache
+```sh
+a2enmod rewrite
+
+<Directory /var/www/>
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride All
+    Order allow,deny
+    allow from all
+</Directory>
+```
+
+config.php
+```php
+
+$config['base_url'] = 'http://yourdomain.com/';
+
+```
+
+```sh
+chmod 777 ./web_root/static/upload
+chmod 777 ./application/log
+```

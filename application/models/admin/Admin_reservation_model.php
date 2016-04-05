@@ -29,7 +29,7 @@
  * @link	http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
-class Admin_reservation_model extends CI_Model
+class Admin_reservation_model extends MY_AdminModel
 {
     public function __construct()
     {
@@ -43,8 +43,8 @@ class Admin_reservation_model extends CI_Model
         $this->db->from("reservation");
         $this->db->join('area_language_view','area_language_view.area_id=reservation.reservation_area_id','left outer');
         $this->db->join('menu_language_view','menu_language_view.menu_id=reservation.reservation_menu_id','left outer');
-        $this->db->where('language_id', $this->session->userdata('site_lang'));
-        $this->db->where('area_language_id', $this->session->userdata('site_lang'));
+        $this->db->where('language_id', $this->siteLangCode);
+        $this->db->where('area_language_id', $this->siteLangCode);
         $this->db->order_by('reservation_date DESC');
         $query = $this->db->get();
         return $query->result();
@@ -56,8 +56,8 @@ class Admin_reservation_model extends CI_Model
         $this->db->from("reservation");
         $this->db->join('area_language_view','area_language_view.area_id=reservation.reservation_area_id','left outer');
         $this->db->join('menu_language_view','menu_language_view.menu_id=reservation.reservation_menu_id','left outer');
-        $this->db->where('language_id', $this->session->userdata('site_lang'));
-        $this->db->where('area_language_id', $this->session->userdata('site_lang'));
+        $this->db->where('language_id', $this->siteLangCode);
+        $this->db->where('area_language_id', $this->siteLangCode);
         $this->db->where('reservation_date>=' . "'" . date("Y-m-d 00:00:00") . "'");
         $this->db->order_by('reservation_date DESC');
         $query = $this->db->get();

@@ -82,7 +82,7 @@
 
                         <div class="col-sm-6 thumbnail">
                             <img
-                                src="<?= base_url("static/upload/talbe_" . $area_id . ".png"); ?>">
+                                src="/static/upload/talbe_<?=$area_id?>.png">
                         </div>
                     </div>
                     <div class="form-group">

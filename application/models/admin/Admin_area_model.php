@@ -29,7 +29,7 @@
  * @link	http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
-class Admin_area_model extends CI_Model
+class Admin_area_model extends MY_AdminModel
 {
     public function __construct()
     {
@@ -41,7 +41,7 @@ class Admin_area_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from("area_list_view");
-        $this->db->where('area_language_id', $this->session->userdata('site_lang'));
+        $this->db->where('area_language_id', $this->siteLangCode);
         if (isset($categoryId)) $this->db->where('category_id', $categoryId);
         $this->db->order_by('area_id');
         $query = $this->db->get();
@@ -65,7 +65,7 @@ class Admin_area_model extends CI_Model
         $this->db->select("*");
         $this->db->from("area_list_view");
         $this->db->where('use_yn', 'Y');
-        $this->db->where('area_language_id', $this->session->userdata('site_lang'));
+        $this->db->where('area_language_id', $this->siteLangCode);
         $this->db->order_by('area_id');
         $query = $this->db->get();
         return $query->result();
@@ -76,7 +76,7 @@ class Admin_area_model extends CI_Model
         $this->db->select("*");
         $this->db->from("area_list_view");
         $this->db->where('area_id', $areaId);
-        $this->db->where('area_language_id', $this->session->userdata('site_lang'));
+        $this->db->where('area_language_id', $this->siteLangCode);
         $query = $this->db->get();
         return $query->result();
     }

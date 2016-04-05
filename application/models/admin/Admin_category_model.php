@@ -29,7 +29,7 @@
  * @link	http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
-class Admin_category_model extends CI_Model
+class Admin_category_model extends MY_AdminModel
 {
     public function __construct()
     {
@@ -41,7 +41,7 @@ class Admin_category_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from("category_list_view");
-        $this->db->where('category_language_id', $this->session->userdata('site_lang'));
+        $this->db->where('category_language_id', $this->siteLangCode);
         $this->db->order_by('category_id');
         $query = $this->db->get();
         return $query->result();
@@ -61,7 +61,7 @@ class Admin_category_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from("category_list_view");
-        $this->db->where('category_language_id', $this->session->userdata('site_lang'));
+        $this->db->where('category_language_id', $this->siteLangCode);
         $this->db->where('category_id', $categoryId);
         $query = $this->db->get();
         return $query->result();
@@ -83,7 +83,7 @@ class Admin_category_model extends CI_Model
         $this->db->select("*");
         $this->db->from("category_list_view");
         $this->db->where('use_yn', 'Y');
-        $this->db->where('category_language_id', $this->session->userdata('site_lang'));
+        $this->db->where('category_language_id', $this->siteLangCode);
         $this->db->order_by('category_id');
         $query = $this->db->get();
         return $query->result();

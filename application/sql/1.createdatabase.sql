@@ -1,2 +1,2 @@
 -- create database
-CREATE DATABASE 'smartorder';
+CREATE DATABASE `smartorder`;

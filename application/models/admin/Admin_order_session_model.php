@@ -29,7 +29,7 @@
  * @link	http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
-class Admin_order_session_model extends CI_Model
+class Admin_order_session_model extends MY_AdminModel
 {
     public function __construct()
     {
@@ -41,9 +41,9 @@ class Admin_order_session_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from("order_session_view");
-        $this->db->where('area_language_id', $this->session->userdata('site_lang'));
-        $this->db->where('category_language_id', $this->session->userdata('site_lang'));
-        $this->db->where('menu_language_id', $this->session->userdata('site_lang'));
+        $this->db->where('area_language_id', $this->siteLangCode);
+        $this->db->where('category_language_id', $this->siteLangCode);
+        $this->db->where('menu_language_id', $this->siteLangCode);
         $this->db->order_by('date_created DESC');
         $this->db->limit($limit,$offset);
         $query = $this->db->get();
@@ -54,9 +54,9 @@ class Admin_order_session_model extends CI_Model
     public function get_total_count() {
         $this->db->select('count(*) as count');
         $this->db->from("order_session_view");
-        $this->db->where('area_language_id', $this->session->userdata('site_lang'));
-        $this->db->where('category_language_id', $this->session->userdata('site_lang'));
-        $this->db->where('menu_language_id', $this->session->userdata('site_lang'));
+        $this->db->where('area_language_id', $this->siteLangCode);
+        $this->db->where('category_language_id', $this->siteLangCode);
+        $this->db->where('menu_language_id', $this->siteLangCode);
         $query = $this->db->get();
         return $query->result();
 
@@ -66,9 +66,9 @@ class Admin_order_session_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from("order_session_view");
-        $this->db->where('area_language_id', $this->session->userdata('site_lang'));
-        $this->db->where('category_language_id', $this->session->userdata('site_lang'));
-        $this->db->where('menu_language_id', $this->session->userdata('site_lang'));
+        $this->db->where('area_language_id', $this->siteLangCode);
+        $this->db->where('category_language_id', $this->siteLangCode);
+        $this->db->where('menu_language_id', $this->siteLangCode);
         $this->db->where('area_id', $areaId);
         $this->db->where('session_id', $sessionId);
         $this->db->order_by('date_created DESC');
@@ -80,9 +80,9 @@ class Admin_order_session_model extends CI_Model
     public function get_day_sale($startdate) {
         $this->db->select('*');
         $this->db->from("order_session_view");
-        $this->db->where('area_language_id', $this->session->userdata('site_lang'));
-        $this->db->where('category_language_id', $this->session->userdata('site_lang'));
-        $this->db->where('menu_language_id', $this->session->userdata('site_lang'));
+        $this->db->where('area_language_id', $this->siteLangCode);
+        $this->db->where('category_language_id', $this->siteLangCode);
+        $this->db->where('menu_language_id', $this->siteLangCode);
         $this->db->like('date_created',$startdate);
         $this->db->order_by('date_created DESC');
         $query = $this->db->get();
@@ -91,9 +91,9 @@ class Admin_order_session_model extends CI_Model
     public function get_today_sale() {
         $this->db->select('sum(menu_price*quantity)');
         $this->db->from("order_session_view");
-        $this->db->where('area_language_id', $this->session->userdata('site_lang'));
-        $this->db->where('category_language_id', $this->session->userdata('site_lang'));
-        $this->db->where('menu_language_id', $this->session->userdata('site_lang'));
+        $this->db->where('area_language_id', $this->siteLangCode);
+        $this->db->where('category_language_id', $this->siteLangCode);
+        $this->db->where('menu_language_id', $this->siteLangCode);
         $query = $this->db->get();
 
         return $query->result();
