@@ -37,7 +37,14 @@ class MY_model extends CI_Model
     public function __construct()
     {
         parent::__construct();
-        $this->siteLangCode = $this->session->userdata('site_lang_code');
+        $lcd = $this->session->userdata('site_lang_code');
+        if (!empty($lcd) && !is_array($lcd) && !is_object($lcd)) {
+            $this->siteLangCode = $lcd;
+        } else {
+            $this->session->set_userdata('site_lang_code',1);
+            $this->siteLangCode = 1;
+        }
+
     }
 }
 

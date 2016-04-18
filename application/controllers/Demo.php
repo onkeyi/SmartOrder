@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link	http://onkeyi.github.io/SmartOrder/
  * @filesource
  */
-class Welcome extends MY_Controller
+class Demo extends MY_Controller
 {
 
     /**
@@ -39,7 +39,8 @@ class Welcome extends MY_Controller
     public function index($param = NULL)
     {
         if (!isset($param)) {
-            show_404();
+            $this->load->view("demo" ,NULL);
+            return;
         }
 
         $this->load->library('encrypt');
@@ -124,9 +125,7 @@ class Welcome extends MY_Controller
             if (isset($data)) {
                 $this->session->set_userdata('site_lang', $languageName);
                 $this->session->set_userdata('site_lang_code', $data->language_id);
-
             }
-            $this->lang->load('message', $languageName);
         }
         redirect("/welcome/main");
     }

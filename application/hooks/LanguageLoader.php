@@ -64,9 +64,11 @@ class LanguageLoader
         if (isset($langCode)) {
             $ci->lang->load('message', $lang);
             $ci->session->set_userdata('site_lang', $lang);
+            $ci->session->set_userdata('site_lang_code', $langCode);
         } else {
             $ci->lang->load('message', "ja");
-            $ci->session->set_userdata('site_lang', $lang);
+            $ci->session->set_userdata('site_lang', 'ja');
+            $ci->session->set_userdata('site_lang_code', 1);
         }
     }
 }
