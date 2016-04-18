@@ -39,7 +39,6 @@ class MY_Controller extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->theme = $this->config->item("theme");
     }
 
     /**
@@ -160,6 +159,11 @@ class MY_AdminController extends CI_Controller {
         parent::__construct();
         if ($this->agent->is_mobile()) {
             show_404();
+        }
+
+        $isLogin = $this->session->userdata('userdata');
+        if (!isset($isLogin)) {
+            $this->load->view('admin/login');
         }
     }
 }

@@ -44,7 +44,6 @@ class MY_model extends CI_Model
             $this->session->set_userdata('site_lang_code',1);
             $this->siteLangCode = 1;
         }
-
     }
 }
 
@@ -56,6 +55,11 @@ class MY_AdminModel extends CI_Model
     {
         parent::__construct();
         $lcd = $this->session->userdata('admin_lang_code');
-        $this->siteLangCode = isset($lcd) ? $lcd : 1;
+        if (!empty($lcd) && !is_array($lcd)) {
+            $this->siteLangCode = $lcd;
+        } else {
+            $this->siteLangCode = 1;
+            $this->session->set_userdata('admin_lang_code',1);
+        }
     }
 }

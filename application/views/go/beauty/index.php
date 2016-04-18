@@ -28,10 +28,10 @@
         <div class="sliderbg_menu">
             <!-- LANGUAGE -->
             <div class="language">
-                <a href="/welcome/changelanguage/japanese" class="button_lang blue radius4">日本語</a>
-                <a href="/welcome/changelanguage/english" class="button_lang blue  radius4">English</a>
-                <a href="/welcome/changelanguage/korean" class="button_lang blue  radius4">한국어</a>
-                <a href="/welcome/changelanguage/chinese" class="button_lang blue  radius4">中国语</a>
+                <a href="/welcome/changelanguage/ja" class="button_lang blue radius4">日本語</a>
+                <a href="/welcome/changelanguage/en" class="button_lang blue  radius4">English</a>
+                <a href="/welcome/changelanguage/ko" class="button_lang blue  radius4">한국어</a>
+                <a href="/welcome/changelanguage/zh" class="button_lang blue  radius4">中国语</a>
             </div>
             <!-- LOGO -->
             <div class="logo">

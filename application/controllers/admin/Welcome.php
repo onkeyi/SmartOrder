@@ -39,19 +39,6 @@ class Welcome extends MY_AdminController
         $this->top();
     }
 
-    public function testqr() {
-        $this->load->library('ciqrcode');
-
-        $params['data'] = 'This is a text to encode become QR Code';
-        $params['level'] = 'H';
-        $params['size'] = 5;
-        $params['savename'] = $this->config->item('upload_path') .'tes.png';
-        $this->ciqrcode->generate($params);
-
-        echo '<img src="http://localhost/static/upload/tes.png" />';
-
-    }
-
     public function checkin($param = NULL) {
         $this->load->library('encrypt');
 
@@ -100,7 +87,6 @@ class Welcome extends MY_AdminController
     public function top($data = NULL)
     {
         $data['reservation'] = $this->admin_reservation_model->get_reservation();
-
         if (!isset($data)) {
             $this->load->view('admin/page');
         } else {

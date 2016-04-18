@@ -124,24 +124,10 @@ class Welcome extends MY_Controller
             if (isset($data)) {
                 $this->session->set_userdata('site_lang', $languageName);
                 $this->session->set_userdata('site_lang_code', $data->language_id);
-
+                $this->lang->load('message', $languageName);
             }
-            $this->lang->load('message', $languageName);
         }
         redirect("/welcome/main");
-    }
-
-    public function testqr()
-    {
-        $this->load->library('ciqrcode');
-
-        $params['data'] = 'This is a text to encode become QR Code';
-        $params['level'] = 'H';
-        $params['size'] = 10;
-        $params['savename'] = '/home/yabo/www/smartorder/web/web_root/assets/qr/test.png';
-        $this->ciqrcode->generate($params);
-
-        echo '<img src="' . base_url() . '/assets/test.png" />';
     }
 
 }
