@@ -143,7 +143,8 @@ class Admin_category_model extends MY_AdminModel
     {
         $this->db->from('category_master');
         $this->db->where('category_id', $categoryId);
-        return $this->db->delete();
+        $this->db->delete();
+        return $this->db->affected_rows();
     }
 
     public function delete_all() {

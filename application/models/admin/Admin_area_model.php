@@ -137,7 +137,8 @@ class Admin_area_model extends MY_AdminModel
     {
         $this->db->from('area_master');
         $this->db->where('area_id', $areaId);
-        return $this->db->delete();
+        $this->db->delete();
+        return $this->db->affected_rows();
     }
 
     /**

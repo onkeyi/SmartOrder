@@ -90,7 +90,8 @@ class Admin_user_master_model extends MY_AdminModel
 
     public function delete($uid) {
         $this->db->where('user_no',$uid);
-        return $this->db->delete('user_master');
+        $this->db->delete('user_master');
+        return $this->db->affected_rows();
     }
 
     public function update($data) {
@@ -101,7 +102,8 @@ class Admin_user_master_model extends MY_AdminModel
         }
 
         $this->db->where('user_no',$data['user_no']);
-        return $this->db->update('user_master',$data);
+        $this->db->update('user_master',$data);
+        return $this->db->affected_rows();
     }
 
     public function get_user_by_id($userId) {

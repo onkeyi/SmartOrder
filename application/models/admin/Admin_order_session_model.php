@@ -109,5 +109,6 @@ class Admin_order_session_model extends MY_AdminModel
     {
         $this->db->where('id', $data['id']);
         $this->db->update('order_session', $data);
+        return $this->db->affected_rows();
     }
 }

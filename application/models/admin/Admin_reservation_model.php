@@ -83,11 +83,13 @@ class Admin_reservation_model extends MY_AdminModel
 
     public function update($data) {
         $this->db->where('reservation_id',$data['reservation_id']);
-        return $this->db->update('reservation',$data);
+        $this->db->update('reservation',$data);
+        return $this->db->affected_rows();
     }
 
     public function delete($id) {
         $this->db->where('reservation_id',$id);
         $this->db->delete('reservation');
+        return $this->db->affected_rows();
     }
 }

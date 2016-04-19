@@ -263,6 +263,7 @@ class Admin_menu_model extends MY_AdminModel
     }
 
     public function delete_all() {
-        return $this->db->delete('menu_master');
+        $this->db->delete('menu_master');
+        return $this->db->affected_rows();
     }
 }
